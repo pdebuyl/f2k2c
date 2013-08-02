@@ -86,14 +86,8 @@ subroutine matvec(A,x,y)                                                   !
     class(matrix), intent(in) :: A
     real(dp), intent(in) :: x(:)
     real(dp), intent(out) :: y(:)
-    integer :: i,j
 
-    y = 0
-    do j=1,A%cols
-        do i=1,A%rows
-            y(i) = y(i)+A%vals(i,j)*x(j)
-        enddo
-    enddo
+    y = matmul(A%vals, x)
 
 end subroutine matvec
 
