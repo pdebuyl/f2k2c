@@ -113,7 +113,6 @@ subroutine c_setup(a_ptr,rows,cols) bind(c)                                !
     integer(c_int), intent(in), value :: rows,cols
     type(matrix), pointer :: A
 
-    allocate(A)
     call c_f_pointer(a_ptr,A)
     call setup(A,rows,cols)
 
@@ -129,7 +128,6 @@ subroutine c_get_val(val,a_ptr,i,j) bind(c)                                !
     integer(c_int), intent(in), value :: i,j
     type(matrix), pointer :: A
 
-    allocate(A)
     call c_f_pointer(a_ptr,A)
     val = A%get_val(i+1,j+1)
 
@@ -145,7 +143,6 @@ subroutine c_set_val(a_ptr,val,i,j) bind(c)                                !
     integer(c_int), intent(in), value :: i,j
     type(matrix), pointer :: A
 
-    allocate(A)
     call c_f_pointer(a_ptr,A)
     call A%set_val(i+1,j+1,val)
 
@@ -161,7 +158,6 @@ subroutine c_add_val(a_ptr,val,i,j) bind(c)                                !
     integer(c_int), intent(in), value :: i,j
     type(matrix), pointer :: A
 
-    allocate(A)
     call c_f_pointer(a_ptr,A)
     call A%add_val(i+1,j+1,val)
 
@@ -178,7 +174,6 @@ subroutine c_matvec(a_ptr,x,y,m,n) bind(c)                                 !
     integer(c_int), intent(in), value :: m,n
     type(matrix), pointer :: A
 
-    allocate(A)
     call c_f_pointer(a_ptr,A)
     call A%matvec(x,y)
 
