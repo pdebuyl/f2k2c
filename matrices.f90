@@ -36,7 +36,7 @@ subroutine setup(A,rows,cols)                                              !
     A%cols = cols
 
     allocate(A%vals(rows,cols))
-    A%vals = 0.d0
+    A%vals = 0
 
 end subroutine setup
 
@@ -89,7 +89,7 @@ subroutine matvec(A,x,y)                                                   !
     real(dp), intent(out) :: y(:)
     integer :: i,j
 
-    y = 0.d0
+    y = 0
     do j=1,A%cols
         do i=1,A%rows
             y(i) = y(i)+A%vals(i,j)*x(j)
