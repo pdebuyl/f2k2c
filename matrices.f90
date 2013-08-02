@@ -28,7 +28,6 @@ contains
 !--------------------------------------------------------------------------!
 subroutine setup(A,rows,cols)                                              !
 !--------------------------------------------------------------------------!
-    implicit none
     type(matrix), intent(inout) :: A
     integer, intent(in) :: rows,cols
 
@@ -45,7 +44,6 @@ end subroutine setup
 !--------------------------------------------------------------------------!
 function get_val(A,row,col)                                                !
 !--------------------------------------------------------------------------!
-    implicit none
     class(matrix), intent(in) :: A
     integer, intent(in) :: row,col
     real(kind(1d0)) :: get_val
@@ -59,7 +57,6 @@ end function get_val
 !--------------------------------------------------------------------------!
 subroutine set_val(A,row,col,val)                                          !
 !--------------------------------------------------------------------------!
-    implicit none
     class(matrix), intent(inout) :: A
     integer, intent(in) :: row,col
     real(kind(1d0)), intent(in) :: val
@@ -73,7 +70,6 @@ end subroutine set_val
 !--------------------------------------------------------------------------!
 subroutine add_val(A,row,col,val)                                          !
 !--------------------------------------------------------------------------!
-    implicit none
     class(matrix), intent(inout) :: A
     integer, intent(in) :: row,col
     real(kind(1d0)), intent(in) :: val
@@ -87,7 +83,6 @@ end subroutine add_val
 !--------------------------------------------------------------------------!
 subroutine matvec(A,x,y)                                                   !
 !--------------------------------------------------------------------------!
-    implicit none
     class(matrix), intent(in) :: A
     real(kind(1d0)), intent(in) :: x(:)
     real(kind(1d0)), intent(out) :: y(:)
@@ -107,7 +102,6 @@ end subroutine matvec
 !--------------------------------------------------------------------------!
 subroutine c_matrix(ptr) bind(c)                                           !
 !--------------------------------------------------------------------------!
-    implicit none
     type(c_ptr), intent(out) :: ptr
     type(matrix), pointer :: A
 
@@ -121,7 +115,6 @@ end subroutine c_matrix
 !--------------------------------------------------------------------------!
 subroutine c_setup(a_ptr,rows,cols) bind(c)                                !
 !--------------------------------------------------------------------------!
-    implicit none
     type(c_ptr), intent(in) :: a_ptr
     integer(c_int), intent(in), value :: rows,cols
     type(matrix), pointer :: A
@@ -137,7 +130,6 @@ end subroutine c_setup
 !--------------------------------------------------------------------------!
 subroutine c_get_val(val,a_ptr,i,j) bind(c)                                !
 !--------------------------------------------------------------------------!
-    implicit none
     real(c_double), intent(out) :: val
     type(c_ptr), intent(in) :: a_ptr
     integer(c_int), intent(in), value :: i,j
@@ -154,7 +146,6 @@ end subroutine c_get_val
 !--------------------------------------------------------------------------!
 subroutine c_set_val(a_ptr,val,i,j) bind(c)                                !
 !--------------------------------------------------------------------------!
-    implicit none
     type(c_ptr), intent(in) :: a_ptr
     real(c_double), intent(in), value :: val
     integer(c_int), intent(in), value :: i,j
@@ -171,7 +162,6 @@ end subroutine c_set_val
 !--------------------------------------------------------------------------!
 subroutine c_add_val(a_ptr,val,i,j) bind(c)                                !
 !--------------------------------------------------------------------------!
-    implicit none
     type(c_ptr), intent(in) :: a_ptr
     real(c_double), intent(in), value :: val
     integer(c_int), intent(in), value :: i,j
@@ -188,7 +178,6 @@ end subroutine c_add_val
 !--------------------------------------------------------------------------!
 subroutine c_matvec(a_ptr,x,y,m,n) bind(c)                                 !
 !--------------------------------------------------------------------------!
-    implicit none
     type(c_ptr), intent(in) :: a_ptr
     real(c_double), intent(in) :: x(n)
     real(c_double), intent(out) :: y(m)
