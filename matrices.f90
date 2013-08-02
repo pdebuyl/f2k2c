@@ -43,11 +43,10 @@ end subroutine setup
 
 
 !--------------------------------------------------------------------------!
-function get_val(A,row,col)                                                !
+real(dp) function get_val(A,row,col)                                       !
 !--------------------------------------------------------------------------!
     class(matrix), intent(in) :: A
     integer, intent(in) :: row,col
-    real(dp) :: get_val
 
     get_val = A%vals(row,col)
 
