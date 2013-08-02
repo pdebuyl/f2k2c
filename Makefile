@@ -35,7 +35,7 @@ ftest: $(FTESTOBJS)
 
 ctest: $(CTESTOBJS)
 	@echo "[f2c] Creating C program test..."
-	$(CC) $(CLIBDIRS) $(CLIBS) $(CFLAGS) $(CTESTOBJS) -o $@
+	$(CC) $(CLIBDIRS) $(CFLAGS) $(CTESTOBJS) -o $@ $(CLIBS)
 	@echo "[f2c] ...done."
 
 clean:
