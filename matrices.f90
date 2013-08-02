@@ -4,6 +4,7 @@ use iso_c_binding
 
 implicit none
 
+integer, parameter :: dp=kind(0.d0)          ! double precision
 
 
 !--------------------------------------------------------------------------!
@@ -11,7 +12,7 @@ implicit none
 !--------------------------------------------------------------------------!
 type :: matrix
     integer :: rows,cols
-    real(kind(1d0)), allocatable :: vals(:,:)
+    real(dp), allocatable :: vals(:,:)
 contains
     procedure :: get_val
     procedure :: set_val,add_val
@@ -46,7 +47,7 @@ function get_val(A,row,col)                                                !
 !--------------------------------------------------------------------------!
     class(matrix), intent(in) :: A
     integer, intent(in) :: row,col
-    real(kind(1d0)) :: get_val
+    real(dp) :: get_val
 
     get_val = A%vals(row,col)
 
@@ -59,7 +60,7 @@ subroutine set_val(A,row,col,val)                                          !
 !--------------------------------------------------------------------------!
     class(matrix), intent(inout) :: A
     integer, intent(in) :: row,col
-    real(kind(1d0)), intent(in) :: val
+    real(dp), intent(in) :: val
 
     A%vals(row,col) = val
 
@@ -72,7 +73,7 @@ subroutine add_val(A,row,col,val)                                          !
 !--------------------------------------------------------------------------!
     class(matrix), intent(inout) :: A
     integer, intent(in) :: row,col
-    real(kind(1d0)), intent(in) :: val
+    real(dp), intent(in) :: val
 
     A%vals(row,col) = A%vals(row,col)+val
 
@@ -84,8 +85,8 @@ end subroutine add_val
 subroutine matvec(A,x,y)                                                   !
 !--------------------------------------------------------------------------!
     class(matrix), intent(in) :: A
-    real(kind(1d0)), intent(in) :: x(:)
-    real(kind(1d0)), intent(out) :: y(:)
+    real(dp), intent(in) :: x(:)
+    real(dp), intent(out) :: y(:)
     integer :: i,j
 
     y = 0.d0
