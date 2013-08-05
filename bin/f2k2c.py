@@ -134,7 +134,7 @@ class FortranParser(markupbase.ParserBase):
             if i == n: break
 
     def parse_procedure(self,j):
-        rawdata = self.rawdata:
+        rawdata = self.rawdata
         startswith = rawdata.startswith
 
         # if the procedure is a function then grab the function type
