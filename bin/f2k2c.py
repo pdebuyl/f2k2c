@@ -138,7 +138,7 @@ class FortranParser(markupbase.ParserBase):
         startswith = rawdata.startswith
 
         # if the procedure is a function then grab the function type
-        if startswith('f',c):
+        if startswith('f',j):
             pass
 
     def parse_attributes(self,attribute_list):
