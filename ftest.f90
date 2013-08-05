@@ -11,7 +11,7 @@ program ftest
 
     rows = 10
     cols = 10
-    A = init(rows,cols)
+    call setup(A,rows,cols)
 
     i = 5
     j = 5
